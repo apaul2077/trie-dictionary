@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f9f9f7;
+}
+.search-dropdown {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.definition-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+.definition-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+.type-badge {
+    font-size: 0.7rem;
+}
