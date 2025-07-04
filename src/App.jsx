@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Trie } from './Trie';
 import { fetchDictionaryDefinition } from './api';
+import wordlistText from './10000wordlist.txt?raw';
 
 function App() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -15,14 +16,9 @@ function App() {
     useEffect(() => {
         trieRef.current = new Trie();
 
-        const loadWords = async () => {
+        const loadWords = () => {
             try {
-                const response = await fetch('/10000wordlist.txt');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const text = await response.text();
-                const words = text.split('\n').map(word => word.trim()).filter(word => word.length > 0);
+                const words = wordlistText.split('\n').map(word => word.trim()).filter(word => word.length > 0);
                 words.forEach(word => trieRef.current.insert(word));
                 console.log(`Trie populated with ${words.length} words.`);
             } catch (error) {
